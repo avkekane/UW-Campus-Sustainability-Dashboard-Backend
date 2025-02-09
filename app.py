@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask import request
 
 app = Flask(__name__)
@@ -10,15 +10,20 @@ def hello_world():
 # returns a list of all building names
 @app.route('/api/building-names', methods = ['GET'])
 def getBuildingNames():
-    return "<p>should return building names</p>"
+    data={}
+    return jsonify(data), 200
 
 # returns details for a specific building
 @app.route('/api/building/<id>', methods = ['GET'])
 def getBuildingDetails(id):
-    return f'<p>Building ID: {id} </p>' 
+    induvisual_building_data = {}
+    return jsonify(induvisual_building_data),200
 
 # returns university information
 @app.route('/api/university', methods = ['GET'])
 def getUniversityInfo():
-    return "<p>Should return university information</p>"
+    uni_info={}
+    return jsonfiy(uni_info),200
 
+# if __name__ == '__main__':
+#     app.run(debug=True)
